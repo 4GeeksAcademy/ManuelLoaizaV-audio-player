@@ -3,15 +3,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
-//only for gitpod
 if(process.env.GITPOD_WORKSPACE_URL){
   const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
   publicUrl = `wss://${port}-${host}/ws`;
 }
-//only for codespaces
 if(process.env.CODESPACE_NAME){
   publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.app.github.dev/ws`;
 }
@@ -70,8 +69,8 @@ module.exports = {
     //   files: path.resolve(__dirname, "src"),
     // }),
     new HtmlWebpackPlugin({
-        favicon: '4geeks.ico',
         template: 'template.html'
     }),
+    new Dotenv(),
   ]
 };
