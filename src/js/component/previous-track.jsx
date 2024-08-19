@@ -15,12 +15,7 @@ export default function PreviousTrack({ numberOfTracks, currentSongIndex, setCur
         if (currentSongIndex === undefined) {
             return;
         }
-
-        if (currentSongIndex === 1) {
-            setCurrentTrack(numberOfTracks);
-        } else {
-            setCurrentTrack(currentSongIndex - 1);
-        }
+        setCurrentTrack((currentSongIndex - 1 + numberOfTracks) % numberOfTracks);
     }
 
     return (

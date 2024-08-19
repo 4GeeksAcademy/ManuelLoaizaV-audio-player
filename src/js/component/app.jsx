@@ -18,9 +18,9 @@ export default function App() {
     }, []);
 
     function setCurrentTrack(index) {
-        setCurrentSongIndex(index);
         audioRef.current.src = tracks[index].url;
         audioRef.current.play();
+        setCurrentSongIndex(index);
         setPlaying(true);
     }
 

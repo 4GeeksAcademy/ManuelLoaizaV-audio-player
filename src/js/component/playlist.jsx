@@ -9,7 +9,7 @@ export default function Playlist({ tracks, currentSongIndex, setCurrentTrack }) 
             {
                 tracks.map((track, index) => <Track
                     key={index}
-                    index={index + 1}
+                    index={index}
                     track={track}
                     numberOfTracks={tracks.length}
                     currentSongIndex={currentSongIndex}

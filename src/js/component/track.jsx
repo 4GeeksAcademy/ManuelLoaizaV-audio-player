@@ -16,7 +16,7 @@ export default function Track({ index, track, numberOfTracks, currentSongIndex, 
 
     return (
         <li
-            className={`list-group-item ${backgroundColor} ${index === currentSongIndex ? 'text-success' : textColor} border border-0 ${index === 1 ? 'mt-5' : ''} ${index === numberOfTracks ? 'mb-5' : ''}`}
+            className={`list-group-item ${backgroundColor} ${index === currentSongIndex ? 'text-success' : textColor} border border-0 ${index === 0 ? 'mt-5' : ''} ${index === numberOfTracks - 1 ? 'mb-5' : ''}`}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
             onClick={() => setCurrentTrack(index)}
@@ -24,7 +24,7 @@ export default function Track({ index, track, numberOfTracks, currentSongIndex, 
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-1 d-flex justify-content-end">
-                        {index === currentSongIndex ? <i className="fa-solid fa-chart-simple" /> : index}
+                        {index === currentSongIndex ? <i className="fa-solid fa-chart-simple" /> : index + 1}
                     </div>
                     <div className="col-1" />
                     <div className="col-4">
